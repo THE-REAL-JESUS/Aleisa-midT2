@@ -42,9 +42,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public int deleteRow(String selection){
         SQLiteDatabase db = this.getWritableDatabase();
-        //db.execSQL("Delete from "+TABLE_NAME+" where NAME LIKE %"+selection+"% OR SURNAME LIKE %"+selection+"%");
-        String[] array={selection};
-        return db.delete(TABLE_NAME," NAME LIKE \'%?%\' OR SURNAME LIKE \'%?%\'",array);
+        db.execSQL("Delete from "+TABLE_NAME+" where NAME LIKE \'%"+selection+"%\' OR SURNAME LIKE \'%"+selection+"%\'");
+        //String[] array={selection};
+        //return db.delete(TABLE_NAME," NAME LIKE \'%?%\' OR SURNAME LIKE \'%?%\'",array);
+        return 1;
 
 
     }
